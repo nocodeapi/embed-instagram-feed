@@ -1,6 +1,6 @@
 import { html, css, LitElement } from "lit-element";
 
-export class InstagramFeed extends LitElement {
+export class EmbedInstagramFeed extends LitElement {
   static get styles() {
     return css`
       .nc-section {
