@@ -1,31 +1,42 @@
 # \<embed-instagram-feed>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This plugin is developed by [NoCodeAPI](https://nocodeapi.com).
 
-## Installation
-```bash
-npm i embed-instagram-feed
+This is reliable and secure method to embed your instagram feed into your static webpages without any coding.
+
+### First step:
+
+- Get your Instagram API endpoint via NoCodeAPI ↳ https://nocodeapi.com/instagram-api
+
+- Add this script into your webpage `<head>` tag.
+
+```javascript
+<script
+  type="module"
+  src="https://unpkg.com/@nocodeapi/embed-instagram-feed@latest/embed-instagram-feed.js?module"
+></script>
 ```
 
-## Usage
+- Just place the `<embed-instagram-feed url="Your Instagram API from NoCodeAPI"></embed-instagram-feed>` into your webpage `<body>` where you want to display your Instagram feeds.
+
+### Full code sample
+
 ```html
-<script type="module">
-  import 'embed-instagram-feed/embed-instagram-feed.js';
-</script>
-
-<embed-instagram-feed></embed-instagram-feed>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Embed Instagram Feed</title>
+    <script
+      type="module"
+      src="https://unpkg.com/@nocodeapi/embed-instagram-feed@latest/embed-instagram-feed.js?module"
+    ></script>
+  </head>
+  <body>
+    <embed-instagram-feed
+      url="Your Instagram API from NoCodeAPI"
+    ></embed-instagram-feed>
+  </body>
+</html>
 ```
 
-
-
-## Tooling configs
-
-For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
-
-If you customize the configuration a lot, you can consider moving them to individual files.
-
-## Local Demo with `web-dev-server`
-```bash
-npm start
-```
-To run a local development server that serves the basic demo located in `demo/index.html`
+### Using npm package
