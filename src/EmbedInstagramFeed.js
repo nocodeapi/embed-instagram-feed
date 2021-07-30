@@ -124,15 +124,17 @@ export class EmbedInstagramFeed extends LitElement {
     return {
       url: { type: String },
       title: { type: String },
+      subtitle: { type: String },
       data: { type: Object },
     };
   }
 
   constructor() {
     super();
-    this.url = "https://v1.nocodeapi.com/betauser/instagram/BSTxoAVotanjuIkh";
-    this.title = "Instagram API";
-    this.subtitle = "Check out our latest from instagram";
+    this.url =
+      "https://v1.nocodeapi.com/betauser/instagram/BSTxoAVotanjuIkh?limit=8";
+    this.title = "Instagram Feed";
+    this.subtitle = "Check out our latest feed from instagram";
     this.data = [];
   }
 
@@ -156,13 +158,9 @@ export class EmbedInstagramFeed extends LitElement {
       <section class="nc-section">
         <div class="nc-container" v-if="url">
           <div class="nc-title">
-            <img
-              src="https://api.iconify.design/ph:instagram-logo-duotone.svg"
-              alt="Instagram Logo"
-            />
             <p>${this.title}</p>
           </div>
-          <p class="nc-subtitle">Check out our latest from instagram</p>
+          <p class="nc-subtitle">${this.subtitle}</p>
           <div class="nc-feed">
             ${this.data.map((item) => {
               if (item.media_type === "IMAGE") {
