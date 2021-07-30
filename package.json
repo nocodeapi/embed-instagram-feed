@@ -1,6 +1,6 @@
 {
   "name": "@nocodeapi/embed-instagram-feed",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Webcomponent embed-instagram-feed following open-wc recommendations",
   "author": "nocodeapi",
   "license": "MIT",
