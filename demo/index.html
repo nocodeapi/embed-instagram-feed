@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-  <head>
-    <meta charset="utf-8" />
-    <style>
-      body {
-        background: #fafafa;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="demo"></div>
 
-    <script type="module">
-      import { html, render } from "lit-html";
-      import "../embed-instagram-feed.js";
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      background: #fafafa;
+    }
+  </style>
+</head>
 
-      const title = "Instagram Feed!";
-      render(
-        html`
-          <embed-instagram-feed .title=${title}>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from "lit-html";
+    import "../embed-instagram-feed.js";
+
+    const title = "Instagram Feed!";
+    const url = "https://v1.nocodeapi.com/fyz/instagram/csTbBAdESEhfcCVN"
+    render(
+      html`
+          <embed-instagram-feed .title=${title} .url=${url}>
             some more light-dom
           </embed-instagram-feed>
         `,
-        document.querySelector("#demo")
-      );
-    </script>
-  </body>
+      document.querySelector("#demo")
+    );
+  </script>
+</body>
+
 </html>

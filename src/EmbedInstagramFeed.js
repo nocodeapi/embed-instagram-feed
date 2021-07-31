@@ -117,6 +117,12 @@ export class EmbedInstagramFeed extends LitElement {
         width: 48px;
         transform: translate(-50%, -50%);
       }
+      .nc-error {
+        text-align: center;
+        background-color: #fed7d7;
+        padding: 1rem 0.5rem;
+        border-radius: 0.25rem;
+      }
     `;
   }
 
@@ -131,11 +137,11 @@ export class EmbedInstagramFeed extends LitElement {
 
   constructor() {
     super();
-    this.url =
-      "https://v1.nocodeapi.com/betauser/instagram/BSTxoAVotanjuIkh?limit=8";
+    this.url = "";
     this.title = "Instagram Feed";
     this.subtitle = "Check out our latest feed from instagram";
     this.data = [];
+    this.apiError = null;
   }
 
   connectedCallback() {
@@ -149,12 +155,15 @@ export class EmbedInstagramFeed extends LitElement {
       const ncapiResponse = await res.json();
       this.data = ncapiResponse.data;
     } catch (e) {
+      this.apiError = true;
       console.error(e);
     }
   }
 
   render() {
-    return html`
+    let htmlTemplate = "";
+    if (this.url && this.url.includes("nocodeapi.com")) {
+      htmlTemplate = html`
       <section class="nc-section">
         <div class="nc-container" v-if="url">
           <div class="nc-title">
@@ -191,6 +200,16 @@ export class EmbedInstagramFeed extends LitElement {
             })}
         </div>
       </section>
-    `;
+      `;
+    } else {
+      htmlTemplate = html`
+        <section class="nc-section">
+          <div class="nc-error">
+            <p>Error: Looks like you havent passed the nocode api endpoint</p>
+          </div>
+        </section>
+      `;
+    }
+    return htmlTemplate;
   }
 }
