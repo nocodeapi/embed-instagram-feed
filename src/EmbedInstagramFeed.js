@@ -117,6 +117,14 @@ export class EmbedInstagramFeed extends LitElement {
         width: 48px;
         transform: translate(-50%, -50%);
       }
+      .nc-carousel-player-icon {
+        position: absolute;
+        top: 10%;
+        left: 90%;
+        height: 35px;
+        width: 35px;
+        transform: translate(-50%, -50%);
+      }
       .nc-error {
         text-align: center;
         background-color: #fed7d7;
@@ -193,6 +201,24 @@ export class EmbedInstagramFeed extends LitElement {
                     <img class="nc-video-player-icon" src="https://api.iconify.design/ph:play-circle-fill.svg" height="24" width="24"/>
                   </div>
                   <p class="nc-caption">${item.caption}</p>
+                  </div>
+                </a>
+                `;
+              }
+              if (item.media_type === "CAROUSEL_ALBUM") {
+                return html`
+                <a target="_blank" rel="noopener" href="${item.permalink}">
+                  <div>
+                    <div class="nc-feed-item nc-video">
+                      <img loading="lazy" src="${item.media_url}" alt="${item.caption}" class="nc-insta-image"/>
+                      <svg aria-label="Carousel" class="nc-carousel-player-icon" color="rgb(255, 255, 255)" fill="rgb(0, 0, 0)" role="img" viewBox="0 0 48 48">
+                      <title>Carousel</title>
+                      <path d="M34.8 29.7V11c0-2.9-2.3-5.2-5.2-5.2H11c-2.9 0-5.2 2.3-5.2 5.2v18.7c0 2.9 2.3 5.2 5.2 5.2h18.7c2.8-.1 5.1-2.4 5.1-5.2zM39.2 15v16.1c0 4.5-3.7 8.2-8.2 8.2H14.9c-.6 0-.9.7-.5 1.1 1 1.1 2.4 1.8 4.1 1.8h13.4c5.7 0 10.3-4.6 10.3-10.3V18.5c0-1.6-.7-3.1-1.8-4.1-.5-.4-1.2 0-1.2.6z">
+                      </path>
+                      </svg>
+                    </div>
+                    <!--<p class="nc-caption">${item.caption}</p>-->
+                    </div>
                   </div>
                 </a>
                 `;
